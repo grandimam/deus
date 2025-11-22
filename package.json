@@ -1,0 +1,40 @@
+{
+  "name": "qalam-cli",
+  "version": "1.0.0",
+  "description": "The pen that never forgets - An intelligent CLI assistant for developers",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "qalam": "./bin/qalam.js"
+  },
+  "scripts": {
+    "start": "node ./bin/qalam.js",
+    "dev": "node --watch ./bin/qalam.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "cli",
+    "tools",
+    "automation",
+    "ai",
+    "productivity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "conf": "^13.0.0",
+    "execa": "^9.3.0",
+    "inquirer": "^10.1.5",
+    "ora": "^8.0.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

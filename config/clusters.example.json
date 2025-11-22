@@ -1,0 +1,26 @@
+{
+  "awsProfile": "your-aws-profile",
+  "clusters": {
+    "dev": {
+      "name": "dev-eks-cluster",
+      "region": "us-west-2",
+      "account": "123456789012",
+      "namespaces": ["dev-namespace"],
+      "defaultNamespace": "dev-namespace"
+    },
+    "staging": {
+      "name": "staging-eks-cluster",
+      "region": "us-east-1",
+      "account": "234567890123",
+      "namespaces": ["staging-namespace"],
+      "defaultNamespace": "staging-namespace"
+    },
+    "prod": {
+      "name": "prod-eks-cluster",
+      "region": "us-east-1",
+      "account": "345678901234",
+      "namespaces": ["prod-namespace"],
+      "defaultNamespace": "prod-namespace"
+    }
+  }
+}

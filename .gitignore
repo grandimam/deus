@@ -1,0 +1,162 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+.env.staging
+*.env
+
+# AWS credentials and config
+.aws/
+aws-credentials
+credentials
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+
+# Kubernetes configs
+kubeconfig
+kubeconfig.yaml
+*.kubeconfig
+.kube/
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+id_ecdsa
+id_ecdsa.pub
+id_dsa
+id_dsa.pub
+*.ppk
+
+# API keys and secrets
+api_key*
+api-key*
+apikey*
+secret*
+*.secret
+secrets/
+.secrets/
+token*
+*.token
+auth.json
+config.json
+!config/clusters.example.json
+
+# Local config and data
+.deus/
+*.local
+local-config/
+local-data/
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+logs/
+*.log
+log.txt
+*.log.*
+.npm/
+.yarn/
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+junit.xml
+*.lcov
+
+# Build outputs
+dist/
+build/
+out/
+.cache/
+.temp/
+.tmp/
+tmp/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+*.save
+*.swp
+*.tmp
+*~
+
+# Package manager locks (uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Python (if any Python scripts are added)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# Terraform (if used for AWS infrastructure)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terragrunt-cache/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Sensitive data patterns
+*_rsa
+*_dsa
+*_ed25519
+*_ecdsa
+*.pem
+*.key
+*.pfx
+*.p12
+*.cer
+*.crt
+*.der
+wallet.dat
+keystore/
