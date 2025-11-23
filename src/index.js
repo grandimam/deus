@@ -83,6 +83,14 @@ export class CLI {
       });
 
     this.program
+      .command("http [action] [args...]")
+      .description("HTTP client with Postman import")
+      .action(async (action, args) => {
+        const allArgs = action ? [action, ...args] : [];
+        await this.runSkill("http", allArgs);
+      });
+
+    this.program
       .command("login [profile]")
       .description("Start your day - authenticate and setup cluster")
       .action(async (profile) => {
@@ -167,7 +175,6 @@ export class CLI {
         return;
       }
 
-      this.memory.addCommand(skillName, args);
       const result = await skill.execute(args);
 
       if (result.success) {
@@ -314,7 +321,7 @@ export class CLI {
       }
 
       case "list": {
-        const result = this.workflowManager.list();
+        const result = await this.workflowManager.interactiveList();
         if (!result.success) {
           console.log(chalk.yellow(result.message));
           return;
@@ -407,12 +414,20 @@ export class CLI {
       }
 
       default:
-        console.log(chalk.red(`Unknown workflow action: ${action}`));
-        console.log(
-          chalk.yellow(
-            "Available actions: create, run, list, show, remove, search, duplicate"
-          )
-        );
+        if (!action) {
+          // No action provided, show interactive menu
+          const result = await this.workflowManager.interactiveMenu();
+          if (!result.success && result.message) {
+            console.log(chalk.red("✗"), result.message);
+          }
+        } else {
+          console.log(chalk.red(`Unknown workflow action: ${action}`));
+          console.log(
+            chalk.yellow(
+              "Available actions: create, run, list, show, remove, search, duplicate"
+            )
+          );
+        }
     }
   }
 
@@ -424,25 +439,17 @@ export class CLI {
 
     // Title
     helpText += chalk.bold.blue(
-      "\n🖋️  Qalam CLI - The pen that never forgets\n\n"
+      "\n Qalam is a tool for automating daily development tasks\n\n"
     );
-    helpText += chalk.gray("Your intelligent CLI assistant for developers\n\n");
-
-    // Usage
     helpText += chalk.yellow("Usage:\n");
-    helpText += `${indent}qalam [command] [options]\n`;
-    helpText += `${indent}qalam${chalk.gray(
-      "                        # Start interactive mode"
-    )}\n\n`;
+    helpText += `${indent}qalam [command] [options]\n\n`;
 
-    // Core Commands
     helpText += chalk.yellow("Core\n");
     const coreCommands = [
       { name: "memory", desc: "Save and recall commands/snippets" },
       { name: "workflow", desc: "Manage and execute workflows" },
       { name: "ask", desc: "Ask AI for help and suggestions" },
       { name: "skills", desc: "List all available skills" },
-      { name: "interactive", desc: "Start interactive mode" },
     ];
 
     coreCommands.forEach((cmd) => {
@@ -458,6 +465,7 @@ export class CLI {
       { name: "cluster", desc: "Switch between clusters/namespaces" },
       { name: "shell", desc: "Kubernetes shell access" },
       { name: "service", desc: "Manage development services" },
+      { name: "http", desc: "HTTP client with Postman import" },
       { name: "config", desc: "Manage configuration" },
     ];
 

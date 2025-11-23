@@ -1,6 +1,7 @@
 import { Skill } from '../core/skillManager.js';
 import chalk from 'chalk';
 import { getDatabase } from '../core/database.js';
+import inquirer from 'inquirer';
 
 export default class MemoryCommands extends Skill {
   constructor() {
@@ -30,7 +31,7 @@ export default class MemoryCommands extends Skill {
       
       case 'list':
       case 'ls':
-        return await this.listCommands(params[0]);
+        return await this.interactiveList();
       
       case 'search':
       case 'find':
@@ -56,7 +57,7 @@ export default class MemoryCommands extends Skill {
       
       default:
         if (!action) {
-          return this.help();
+          return await this.interactiveMenu();
         }
         // If no action, treat first arg as name to get
         return await this.getCommand(action);
@@ -439,9 +440,170 @@ export default class MemoryCommands extends Skill {
     }
   }
 
+  async interactiveList() {
+    try {
+      const commands = await this.db.listCommands(100);
+      
+      if (commands.length === 0) {
+        console.log(chalk.yellow('No saved commands yet'));
+        console.log(chalk.gray('Save your first command with:'), chalk.cyan('qalam memory save <name> "<command>"'));
+        return {
+          success: true,
+          message: 'No saved commands'
+        };
+      }
+
+      // Build choices for inquirer
+      const choices = commands.map(cmd => {
+        const usage = chalk.gray(`(${cmd.usage_count}x)`);
+        const desc = cmd.description ? chalk.gray(` - ${cmd.description}`) : '';
+        const preview = cmd.command.length > 40 
+          ? cmd.command.substring(0, 40) + '...' 
+          : cmd.command;
+        
+        return {
+          name: `${chalk.green(cmd.name.padEnd(20))} ${chalk.white(preview)}${desc} ${usage}`,
+          value: cmd.name,
+          short: cmd.name
+        };
+      });
+
+      choices.push(new inquirer.Separator());
+      choices.push({ name: chalk.gray('Exit'), value: '__exit__' });
+
+      const { selected } = await inquirer.prompt([
+        {
+          type: 'list',
+          name: 'selected',
+          message: 'Select a command to run:',
+          choices: choices,
+          pageSize: 20
+        }
+      ]);
+
+      if (selected === '__exit__') {
+        return { success: true };
+      }
+
+      // Get and execute the selected command
+      const command = await this.db.getCommand(selected);
+      console.log(chalk.blue(command.command));
+      
+      const { execute } = await inquirer.prompt([
+        {
+          type: 'confirm',
+          name: 'execute',
+          message: 'Execute this command?',
+          default: true
+        }
+      ]);
+
+      if (execute) {
+        console.log(chalk.yellow('\nExecuting command...'));
+        try {
+          const { execa } = await import('execa');
+          await execa(command.command, [], {
+            shell: true,
+            stdio: 'inherit'
+          });
+        } catch (error) {
+          console.log(chalk.red(`\nExecution failed: ${error.message}`));
+        }
+      }
+      
+      return {
+        success: true,
+        message: command.command
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: `Failed to list commands: ${error.message}`
+      };
+    }
+  }
+
+  async interactiveMenu() {
+    const choices = [
+      { name: 'List and run saved commands', value: 'list' },
+      { name: 'Save a new command', value: 'save' },
+      { name: 'Search commands', value: 'search' },
+      { name: 'View statistics', value: 'stats' },
+      { name: 'Export commands', value: 'export' },
+      { name: 'Exit', value: '__exit__' }
+    ];
+
+    const { action } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'action',
+        message: 'Memory Commands:',
+        choices: choices
+      }
+    ]);
+
+    switch (action) {
+      case 'list':
+        return await this.interactiveList();
+      
+      case 'save':
+        const { name, command, description } = await inquirer.prompt([
+          {
+            type: 'input',
+            name: 'name',
+            message: 'Command name:',
+            validate: input => input.length > 0 || 'Name is required'
+          },
+          {
+            type: 'input',
+            name: 'command',
+            message: 'Command to save:',
+            validate: input => input.length > 0 || 'Command is required'
+          },
+          {
+            type: 'input',
+            name: 'description',
+            message: 'Description (optional):'
+          }
+        ]);
+        return await this.saveCommand([name, command, description]);
+      
+      case 'search':
+        const { query } = await inquirer.prompt([
+          {
+            type: 'input',
+            name: 'query',
+            message: 'Search query:'
+          }
+        ]);
+        return await this.searchCommands(query);
+      
+      case 'stats':
+        return await this.showStats();
+      
+      case 'export':
+        const { filename } = await inquirer.prompt([
+          {
+            type: 'input',
+            name: 'filename',
+            message: 'Export filename (optional):',
+            default: `qalam-commands-${new Date().toISOString().split('T')[0]}.json`
+          }
+        ]);
+        return await this.exportCommands(filename);
+      
+      case '__exit__':
+        return { success: true };
+    }
+  }
+
   help() {
     const helpText = `
 ${chalk.blue('Memory Commands - Save and recall command snippets')}
+
+${chalk.yellow('Interactive Mode:')}
+  ${chalk.cyan('qalam memory')}                  Interactive menu
+  ${chalk.cyan('qalam memory list')}             Select and run from list
 
 ${chalk.yellow('Usage:')}
   ${chalk.cyan('qalam memory save build "npm run build && npm test" "Build and test"')}

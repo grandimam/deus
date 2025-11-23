@@ -3,6 +3,7 @@ import { execa } from "execa";
 import chalk from "chalk";
 import path from "path";
 import fs from "fs/promises";
+import inquirer from "inquirer";
 
 export default class ServiceSkill extends Skill {
   constructor() {
@@ -26,12 +27,7 @@ export default class ServiceSkill extends Skill {
     const [command, ...params] = args;
 
     if (!command) {
-      return {
-        success: false,
-        message:
-          "Service command required. Available: " +
-          Object.keys(this.commands).join(", "),
-      };
+      return await this.interactiveMenu();
     }
 
     try {
@@ -40,17 +36,33 @@ export default class ServiceSkill extends Skill {
 
       switch (command) {
         case "start":
+          if (params.length === 0) {
+            return await this.interactiveSelectService('start');
+          }
           return await this.startService(params);
         case "stop":
+          if (params.length === 0) {
+            return await this.interactiveSelectService('stop');
+          }
           return await this.stopService(params);
         case "restart":
+          if (params.length === 0) {
+            return await this.interactiveSelectService('restart');
+          }
           return await this.restartService(params);
         case "status":
+          if (params.length === 0) {
+            return await this.interactiveSelectService('status');
+          }
           return await this.serviceStatus(params);
         case "logs":
+          if (params.length === 0) {
+            return await this.interactiveSelectService('logs');
+          }
           return await this.viewLogs(params);
         case "list":
-          return await this.listServices();
+        case "ls":
+          return await this.interactiveListServices();
         case "ps":
           return await this.listRunning();
         default:
@@ -296,6 +308,180 @@ export default class ServiceSkill extends Skill {
     return services;
   }
 
+  async interactiveMenu() {
+    try {
+      await this.checkDevConfExists();
+    } catch (error) {
+      return {
+        success: false,
+        message: error.message
+      };
+    }
+
+    const choices = [
+      { name: 'Start a service', value: 'start' },
+      { name: 'Stop a service', value: 'stop' },
+      { name: 'Restart a service', value: 'restart' },
+      { name: 'Check service status', value: 'status' },
+      { name: 'View service logs', value: 'logs' },
+      { name: 'List all services', value: 'list' },
+      { name: 'List running services', value: 'ps' },
+      { name: 'Exit', value: '__exit__' }
+    ];
+
+    const { action } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'action',
+        message: 'Service Management:',
+        choices: choices
+      }
+    ]);
+
+    if (action === '__exit__') {
+      return { success: true };
+    }
+
+    if (action === 'ps') {
+      return await this.listRunning();
+    }
+
+    if (action === 'list') {
+      return await this.interactiveListServices();
+    }
+
+    return await this.interactiveSelectService(action);
+  }
+
+  async interactiveSelectService(action) {
+    // Get all available services
+    const { stdout } = await execa(
+      "docker",
+      ["compose", "-f", this.dockerComposePath, "config", "--services"],
+      {
+        cwd: this.devConfPath,
+      }
+    );
+
+    const services = stdout.split("\n").filter((s) => s.trim());
+    
+    // Group services by base name
+    const serviceGroups = {};
+    services.forEach((service) => {
+      const baseName = service.replace(/-consumer$|-celery$/, "");
+      if (!serviceGroups[baseName]) {
+        serviceGroups[baseName] = [];
+      }
+      serviceGroups[baseName].push(service);
+    });
+
+    // Build choices for selection
+    const choices = [];
+    Object.entries(serviceGroups).forEach(([base, related]) => {
+      if (related.length === 1) {
+        choices.push({
+          name: chalk.green(base),
+          value: base
+        });
+      } else {
+        choices.push({
+          name: `${chalk.green(base)} ${chalk.gray(`(+ ${related.filter(s => s !== base).join(', ')})`)}`,
+          value: base
+        });
+      }
+    });
+
+    choices.push(new inquirer.Separator());
+    choices.push({ name: chalk.gray('Cancel'), value: '__cancel__' });
+
+    const actionText = {
+      start: 'start',
+      stop: 'stop',
+      restart: 'restart',
+      status: 'check status of',
+      logs: 'view logs for'
+    };
+
+    const { selected } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'selected',
+        message: `Select service to ${actionText[action]}:`,
+        choices: choices,
+        pageSize: 15
+      }
+    ]);
+
+    if (selected === '__cancel__') {
+      return { success: true };
+    }
+
+    // Execute the action
+    switch (action) {
+      case 'start':
+        return await this.startService([selected]);
+      case 'stop':
+        return await this.stopService([selected]);
+      case 'restart':
+        return await this.restartService([selected]);
+      case 'status':
+        return await this.serviceStatus([selected]);
+      case 'logs':
+        // For logs, ask for additional options
+        const { follow } = await inquirer.prompt([
+          {
+            type: 'confirm',
+            name: 'follow',
+            message: 'Follow log output (live updates)?',
+            default: false
+          }
+        ]);
+        const options = follow ? ['-f'] : [];
+        return await this.viewLogs([selected, ...options]);
+    }
+  }
+
+  async interactiveListServices() {
+    // Parse docker-compose.yml to get all services
+    const { stdout } = await execa(
+      "docker",
+      ["compose", "-f", this.dockerComposePath, "config", "--services"],
+      {
+        cwd: this.devConfPath,
+      }
+    );
+
+    const services = stdout.split("\n").filter((s) => s.trim());
+
+    // Group services by base name
+    const serviceGroups = {};
+    services.forEach((service) => {
+      const baseName = service.replace(/-consumer$|-celery$/, "");
+      if (!serviceGroups[baseName]) {
+        serviceGroups[baseName] = [];
+      }
+      serviceGroups[baseName].push(service);
+    });
+
+    console.log(chalk.blue('Available Services:\n'));
+    Object.entries(serviceGroups).forEach(([base, related]) => {
+      if (related.length === 1) {
+        console.log(`  ${chalk.green(base)}`);
+      } else {
+        console.log(`  ${chalk.green(base)} ${chalk.gray(`(+ ${related.filter(s => s !== base).join(', ')})}`)}`);
+      }
+    });
+
+    console.log(chalk.gray('\nUsage:'));
+    console.log(chalk.gray('  Start service:'), chalk.cyan('qalam service start'));
+    console.log(chalk.gray('  Quick start:'), chalk.cyan('qalam service start <name>'));
+
+    return {
+      success: true,
+      message: `Found ${Object.keys(serviceGroups).length} services`
+    };
+  }
+
   help() {
     const commands = Object.entries(this.commands)
       .map(
@@ -304,15 +490,16 @@ export default class ServiceSkill extends Skill {
       .join("\n");
 
     return (
-      `Service skill commands:\n${commands}\n\nExamples:\n` +
-      `  ${chalk.cyan("qalam service list")} - List all available services\n` +
-      `  ${chalk.cyan(
-        "qalam service start property-lpv-service"
-      )} - Start property-lpv-service and related workers\n` +
-      `  ${chalk.cyan(
-        "qalam service logs property-lpv-service"
-      )} - View service logs\n` +
-      `  ${chalk.cyan("qalam service ps")} - List all running services`
+      `${chalk.blue('Service Management - Docker Compose')}\n\n` +
+      `${chalk.yellow('Interactive Mode:')}\n` +
+      `  ${chalk.cyan("qalam service")}                  Interactive menu\n` +
+      `  ${chalk.cyan("qalam service start")}            Select service to start\n` +
+      `  ${chalk.cyan("qalam service list")}             List all services\n\n` +
+      `${chalk.yellow('Direct Usage:')}\n` +
+      `  ${chalk.cyan("qalam service start <name>")}     Start specific service\n` +
+      `  ${chalk.cyan("qalam service stop <name>")}      Stop specific service\n` +
+      `  ${chalk.cyan("qalam service logs <name>")}      View service logs\n` +
+      `  ${chalk.cyan("qalam service ps")}               List running services`
     );
   }
 }
