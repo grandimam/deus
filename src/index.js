@@ -91,6 +91,14 @@ export class CLI {
       });
 
     this.program
+      .command("tasks [action] [args...]")
+      .description("Simple priority task management")
+      .action(async (action, args) => {
+        const allArgs = action ? [action, ...args] : [];
+        await this.runSkill("tasks", allArgs);
+      });
+
+    this.program
       .command("login [profile]")
       .description("Start your day - authenticate and setup cluster")
       .action(async (profile) => {
@@ -178,12 +186,16 @@ export class CLI {
       const result = await skill.execute(args);
 
       if (result.success) {
-        console.log(chalk.green("✓"), result.message);
+        if (result.message) {
+          console.log(chalk.green("✓"), result.message);
+        }
         if (result.output) {
           console.log(result.output);
         }
       } else {
-        console.log(chalk.red("✗"), result.message);
+        if (result.message) {
+          console.log(chalk.red("✗"), result.message);
+        }
       }
     } catch (error) {
       console.error(chalk.red("Error:"), error.message);
@@ -446,6 +458,7 @@ export class CLI {
 
     helpText += chalk.yellow("Core\n");
     const coreCommands = [
+      { name: "tasks", desc: "Priority task management" },
       { name: "memory", desc: "Save and recall commands/snippets" },
       { name: "workflow", desc: "Manage and execute workflows" },
       { name: "ask", desc: "Ask AI for help and suggestions" },

@@ -2,7 +2,7 @@ import { Skill } from '../core/skillManager.js';
 import { execa } from 'execa';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { Memory } from '../memory/history.js';
+// import { Memory } from '../memory/history.js'; // Removed - history feature deprecated
 import fs from 'fs/promises';
 import path from 'path';
 import os from 'os';
@@ -10,7 +10,7 @@ import os from 'os';
 export default class KShellSkill extends Skill {
   constructor() {
     super('shell', 'Advanced Kubernetes shell management');
-    this.memory = new Memory();
+    // this.memory = new Memory(); // Removed - history feature deprecated
     this.sessionStore = new Map();
     this.justificationTemplates = [
       'Debugging application issues',

@@ -22,15 +22,20 @@ export class SkillManager {
       const files = await fs.readdir(skillsDir);
       for (const file of files) {
         if (file.endsWith('.js')) {
-          const skillModule = await import(path.join(skillsDir, file));
-          if (skillModule.default) {
-            const skill = new skillModule.default();
-            this.registerSkill(skill);
+          try {
+            const skillModule = await import(path.join(skillsDir, file));
+            if (skillModule.default) {
+              const skill = new skillModule.default();
+              this.registerSkill(skill);
+            }
+          } catch (error) {
+            console.error(`Failed to load skill ${file}:`, error.message);
+            // Continue loading other skills
           }
         }
       }
     } catch (error) {
-      // Skills directory doesn't exist yet
+      console.error('Skills directory error:', error.message);
     }
   }
 
