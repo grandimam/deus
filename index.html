@@ -1,0 +1,1591 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The intelligent command-line memory for developers">
+      
+      
+        <meta name="author" content="Your Name">
+      
+      
+        <link rel="canonical" href="https://yourdomain.com/">
+      
+      
+      
+        <link rel="next" href="quick-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Qalam CLI</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qalam-cli-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Qalam CLI" class="md-header__button md-logo" aria-label="Qalam CLI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qalam CLI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/grandimam/qalam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qalam
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="quick-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="features/memory/" class="md-tabs__link">
+          
+  
+  
+  Core Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="concepts/architecture/" class="md-tabs__link">
+          
+  
+  
+  Core Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="commands/" class="md-tabs__link">
+          
+  
+  
+  Help
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Qalam CLI" class="md-nav__button md-logo" aria-label="Qalam CLI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qalam CLI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/grandimam/qalam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qalam
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-we-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem We Solve
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-qalam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Qalam?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-qalam-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Qalam Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essential Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-command-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 🧠 Command Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-workflow-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 🔄 Workflow Automation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-task-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 📋 Task Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 🤖 AI Assistant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-http-client-with-postman-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 🌐 HTTP Client with Postman Import
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-interactive-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 🎯 Interactive Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-smart-shell-access-for-k8s-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. ☸️ Smart Shell Access (For K8s Users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-should-use-qalam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Should Use Qalam?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Who Should Use Qalam?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perfect-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Perfect For:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Core Use Cases:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-qalam-many-commands-context-switching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Qalam (Many commands, context switching)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-qalam-simple-and-organized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Qalam (Simple and organized)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-differentiators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Differentiators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Getting Started
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Core Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-extending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Understanding &amp; Extending
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❓ Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Now
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/http-client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding Qalam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="development/custom-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="qalam-cli-documentation">Qalam CLI Documentation<a class="headerlink" href="#qalam-cli-documentation" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>🖋️ <strong>The intelligent command-line memory for developers</strong></p>
+</blockquote>
+<h2 id="the-problem-we-solve">The Problem We Solve<a class="headerlink" href="#the-problem-we-solve" title="Permanent link">&para;</a></h2>
+<p>Every developer faces the same daily frustrations:</p>
+<ul>
+<li><strong>"What was that command?"</strong> - Searching through history for that complex kubectl command you ran last week</li>
+<li><strong>"How did I do this before?"</strong> - Re-googling the same solutions over and over</li>
+<li><strong>"Time to start work..."</strong> - Running the same 10 commands every morning to get your environment ready</li>
+<li><strong>"Too many tasks..."</strong> - Losing track of what needs to be done across multiple projects</li>
+</ul>
+<h2 id="what-is-qalam">What is Qalam?<a class="headerlink" href="#what-is-qalam" title="Permanent link">&para;</a></h2>
+<p><strong>Qalam is your command-line companion that remembers everything so you don't have to.</strong></p>
+<p>Think of it as:</p>
+<ul>
+<li>🧠 <strong>A searchable brain</strong> for all your commands</li>
+<li>🤖 <strong>An intelligent assistant</strong> that understands what you're trying to do</li>
+<li>⚡ <strong>An automation engine</strong> that turns repetitive tasks into single commands</li>
+<li>📋 <strong>A task manager</strong> that lives in your terminal</li>
+</ul>
+<h2 id="why-qalam-exists">Why Qalam Exists<a class="headerlink" href="#why-qalam-exists" title="Permanent link">&para;</a></h2>
+<p>We built Qalam because developers spend too much time on repetitive command-line tasks:</p>
+<ol>
+<li><strong>Memory Fatigue</strong> - The average developer uses hundreds of different commands across dozens of tools</li>
+<li><strong>Repetitive Workflows</strong> - Running the same sequence of commands multiple times per day</li>
+<li><strong>Context Switching</strong> - Jumping between terminal and other tools for task management</li>
+<li><strong>Knowledge Loss</strong> - Valuable command knowledge gets lost when developers leave or forget</li>
+</ol>
+<p>Qalam solves these problems by becoming your permanent command-line memory and automation layer.</p>
+<h2 id="essential-capabilities">Essential Capabilities<a class="headerlink" href="#essential-capabilities" title="Permanent link">&para;</a></h2>
+<h3 id="1-command-memory">1. 🧠 <strong>Command Memory</strong><a class="headerlink" href="#1-command-memory" title="Permanent link">&para;</a></h3>
+<p>Never lose a command again. Save, search, and instantly recall any command with context.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save a complex command once</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>deploy<span class="w"> </span><span class="s2">&quot;npm run build &amp;&amp; rsync -avz dist/ server:/var/www/&quot;</span>
+
+<span class="c1"># Recall it instantly whenever needed</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>get<span class="w"> </span>deploy
+
+<span class="c1"># Search through all your commands</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>search<span class="w"> </span>rsync
+</code></pre></div>
+<h3 id="2-workflow-automation">2. 🔄 <strong>Workflow Automation</strong><a class="headerlink" href="#2-workflow-automation" title="Permanent link">&para;</a></h3>
+<p>Turn multi-step processes into single commands. No more copy-pasting from README files.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a morning startup workflow</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>morning
+<span class="c1"># Interactively add commands: git pull, npm install, npm run dev</span>
+
+<span class="c1"># Run your entire setup with one command</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>morning
+
+<span class="c1"># Use variables for flexible workflows</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>--vars<span class="w"> </span><span class="nv">env</span><span class="o">=</span>staging
+</code></pre></div>
+<h3 id="3-task-management">3. 📋 <strong>Task Management</strong><a class="headerlink" href="#3-task-management" title="Permanent link">&para;</a></h3>
+<p>Keep track of what needs to be done, right in your terminal where you work.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add tasks with priority</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;Fix memory leak in API&quot;</span><span class="w"> </span>p1
+qalam<span class="w"> </span>tasks<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;Update documentation&quot;</span><span class="w"> </span>p3
+
+<span class="c1"># Get your next priority task</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>next
+
+<span class="c1"># Mark tasks complete</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<h3 id="4-ai-assistant">4. 🤖 <strong>AI Assistant</strong><a class="headerlink" href="#4-ai-assistant" title="Permanent link">&para;</a></h3>
+<p>Get instant solutions without leaving your terminal. No more context switching to Google.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ask in plain English</span>
+qalam<span class="w"> </span>ask<span class="w"> </span><span class="s2">&quot;how to find which process is using port 3000&quot;</span>
+
+<span class="c1"># Get working commands immediately</span>
+qalam<span class="w"> </span>ask<span class="w"> </span><span class="s2">&quot;create a git pre-commit hook&quot;</span>
+
+<span class="c1"># Debug errors</span>
+qalam<span class="w"> </span>ask<span class="w"> </span><span class="s2">&quot;fix: npm ERR! ENOENT: no such file or directory&quot;</span>
+</code></pre></div>
+<h3 id="5-http-client-with-postman-import">5. 🌐 <strong>HTTP Client with Postman Import</strong><a class="headerlink" href="#5-http-client-with-postman-import" title="Permanent link">&para;</a></h3>
+<p>Import and run Postman collections directly from your terminal.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import your Postman collection</span>
+qalam<span class="w"> </span>http<span class="w"> </span>import<span class="w"> </span>api-collection.json
+
+<span class="c1"># Set variables and run requests</span>
+qalam<span class="w"> </span>http<span class="w"> </span><span class="nb">set</span><span class="w"> </span>baseUrl<span class="w"> </span>http://localhost:3000
+qalam<span class="w"> </span>http<span class="w"> </span><span class="s2">&quot;Create User&quot;</span>
+qalam<span class="w"> </span>http<span class="w"> </span><span class="s2">&quot;Get User Profile&quot;</span>
+</code></pre></div>
+<h3 id="6-interactive-mode">6. 🎯 <strong>Interactive Mode</strong><a class="headerlink" href="#6-interactive-mode" title="Permanent link">&para;</a></h3>
+<p>A powerful REPL interface for managing everything in one place.</p>
+<div class="highlight"><pre><span></span><code>qalam<span class="w">  </span><span class="c1"># Enter interactive mode</span>
+
+&gt;<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="s2">&quot;npm test&quot;</span>
+&gt;<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>deploy
+&gt;<span class="w"> </span>tasks<span class="w"> </span>list
+&gt;<span class="w"> </span><span class="nb">help</span>
+</code></pre></div>
+<h3 id="7-smart-shell-access-for-k8s-users">7. ☸️ <strong>Smart Shell Access</strong> (For K8s Users)<a class="headerlink" href="#7-smart-shell-access-for-k8s-users" title="Permanent link">&para;</a></h3>
+<p>Safe, audited access to Kubernetes pods with automatic cleanup.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Debug with safety checks</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>api-service<span class="w"> </span>--reason<span class="w"> </span><span class="s2">&quot;Debug issue #123&quot;</span><span class="w"> </span>--duration<span class="w"> </span>30m
+
+<span class="c1"># Switch clusters safely</span>
+qalam<span class="w"> </span>cluster<span class="w"> </span>staging
+qalam<span class="w"> </span>cluster<span class="w"> </span>prod<span class="w">  </span><span class="c1"># Requires confirmation</span>
+</code></pre></div>
+<h2 id="who-should-use-qalam">Who Should Use Qalam?<a class="headerlink" href="#who-should-use-qalam" title="Permanent link">&para;</a></h2>
+<h3 id="perfect-for">✅ Perfect For:<a class="headerlink" href="#perfect-for" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Any Developer</strong> who uses the command line daily</li>
+<li><strong>Team Leads</strong> who want to share tribal knowledge and best practices</li>
+<li><strong>DevOps Engineers</strong> managing complex command sequences</li>
+<li><strong>New Team Members</strong> who need to get up to speed quickly</li>
+</ul>
+<h3 id="core-use-cases">💡 Core Use Cases:<a class="headerlink" href="#core-use-cases" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Daily Development</strong> - Start your entire dev environment with one command</li>
+<li><strong>Knowledge Sharing</strong> - Export and share commands with your team</li>
+<li><strong>Task Tracking</strong> - Keep your to-dos in the terminal where you work</li>
+<li><strong>Learning</strong> - Get instant help without leaving your workflow</li>
+</ul>
+<h2 id="quick-start-example">Quick Start Example<a class="headerlink" href="#quick-start-example" title="Permanent link">&para;</a></h2>
+<p>Here's how Qalam transforms your daily workflow:</p>
+<h3 id="before-qalam-many-commands-context-switching">Before Qalam (Many commands, context switching)<a class="headerlink" href="#before-qalam-many-commands-context-switching" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Every morning you do this...</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/myapp
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+npm<span class="w"> </span>install
+npm<span class="w"> </span>run<span class="w"> </span>dev
+<span class="c1"># Wait, what was that test command?</span>
+<span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nb">test</span>
+<span class="c1"># What tasks did I need to do today?</span>
+<span class="c1"># *switches to another app*</span>
+</code></pre></div>
+<h3 id="after-qalam-simple-and-organized">After Qalam (Simple and organized)<a class="headerlink" href="#after-qalam-simple-and-organized" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Everything in one place</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>morning<span class="w">  </span><span class="c1"># Runs all your startup commands</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>next<span class="w">           </span><span class="c1"># Shows your next priority task</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>get<span class="w"> </span><span class="nb">test</span><span class="w">      </span><span class="c1"># Instantly recalls your test command</span>
+</code></pre></div>
+<h2 id="key-differentiators">Key Differentiators<a class="headerlink" href="#key-differentiators" title="Permanent link">&para;</a></h2>
+<p>What makes Qalam different from aliases or shell scripts?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Aliases/Scripts</th>
+<th>Qalam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Searchable</strong></td>
+<td>❌ Hidden in dotfiles</td>
+<td>✅ Full-text search</td>
+</tr>
+<tr>
+<td><strong>Shareable</strong></td>
+<td>❌ Manual copying</td>
+<td>✅ Import/export</td>
+</tr>
+<tr>
+<td><strong>Interactive</strong></td>
+<td>❌ Static</td>
+<td>✅ Prompts and menus</td>
+</tr>
+<tr>
+<td><strong>Task Tracking</strong></td>
+<td>❌ Not available</td>
+<td>✅ Built-in task manager</td>
+</tr>
+<tr>
+<td><strong>AI Help</strong></td>
+<td>❌ Not available</td>
+<td>✅ Instant assistance</td>
+</tr>
+<tr>
+<td><strong>Extensible</strong></td>
+<td>❌ Limited</td>
+<td>✅ Custom skills</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone and install</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/qalam.git
+<span class="nb">cd</span><span class="w"> </span>qalam
+npm<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>link
+
+<span class="c1"># Start using immediately</span>
+qalam
+</code></pre></div>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<h3 id="getting-started">📚 Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="getting-started/installation/"><strong>Installation</strong></a> - Set up in 2 minutes</li>
+<li><a href="quick-reference/"><strong>Quick Reference</strong></a> - All commands at a glance</li>
+</ul>
+<h3 id="core-features">🛠️ Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="features/memory/"><strong>Memory System</strong></a> - Never forget a command</li>
+<li><a href="features/workflows/"><strong>Workflows</strong></a> - Automate everything</li>
+<li><a href="features/tasks/"><strong>Task Management</strong></a> - Stay organized</li>
+<li><a href="features/http-client/"><strong>HTTP Client</strong></a> - API testing with Postman collections</li>
+</ul>
+<h3 id="understanding-extending">🏗️ Understanding &amp; Extending<a class="headerlink" href="#understanding-extending" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="concepts/architecture/"><strong>Core Concepts</strong></a> - Memory, Skills, Workflows, and more</li>
+<li><a href="development/custom-skills/"><strong>Custom Skills</strong></a> - Extend Qalam with your own features</li>
+</ul>
+<h3 id="help">❓ Help<a class="headerlink" href="#help" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="troubleshooting/"><strong>Troubleshooting</strong></a> - Common issues and solutions</li>
+</ul>
+<h2 id="start-now">Start Now<a class="headerlink" href="#start-now" title="Permanent link">&para;</a></h2>
+<p>Ready to never forget a command again?</p>
+<ol>
+<li><strong><a href="getting-started/installation/">Install Qalam</a></strong> - 2 minutes</li>
+<li><strong>Save your first command</strong> - <code>qalam memory save hello "echo 'Hello, Qalam!'"</code></li>
+<li><strong>Create your first workflow</strong> - <code>qalam workflow create morning</code></li>
+<li><strong>Track your tasks</strong> - <code>qalam tasks add "Learn Qalam" p1</code></li>
+</ol>
+<hr />
+<p><strong>Qalam - Write once, run forever</strong><br />
+<em>Because your brain is for solving problems, not memorizing commands</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "navigation.instant", "navigation.expand", "navigation.sections", "navigation.tabs", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1693 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The intelligent command-line memory for developers">
+      
+      
+        <meta name="author" content="Your Name">
+      
+      
+        <link rel="canonical" href="https://yourdomain.com/troubleshooting/">
+      
+      
+        <link rel="prev" href="../commands/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Troubleshooting - Qalam CLI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#troubleshooting-faq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Qalam CLI" class="md-header__button md-logo" aria-label="Qalam CLI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qalam CLI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/grandimam/qalam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qalam
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quick-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../features/memory/" class="md-tabs__link">
+          
+  
+  
+  Core Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../concepts/architecture/" class="md-tabs__link">
+          
+  
+  
+  Core Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commands/" class="md-tabs__link">
+          
+  
+  
+  Help
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Qalam CLI" class="md-nav__button md-logo" aria-label="Qalam CLI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qalam CLI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/grandimam/qalam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qalam
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/http-client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding Qalam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/custom-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-asked-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequently Asked Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequently Asked Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerservice-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker/Service Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-client-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Client Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Messages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cannot-find-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Cannot find module"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eacces-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "EACCES: permission denied"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-failed-with-exit-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Command failed with exit code"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unexpected-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Unexpected token"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verbose-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbose Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="troubleshooting-faq">Troubleshooting &amp; FAQ<a class="headerlink" href="#troubleshooting-faq" title="Permanent link">&para;</a></h1>
+<h2 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h2>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<p><strong>Q: What does "Qalam" mean?</strong><br />
+A: Qalam (قلم) means "pen" in Arabic. In Islamic tradition, the Qalam was the first creation, used to write all that would happen. Similarly, Qalam CLI writes and preserves your command-line knowledge.</p>
+<p><strong>Q: Is Qalam free to use?</strong><br />
+A: Yes, Qalam is open-source and free to use under the MIT license.</p>
+<p><strong>Q: Which platforms does Qalam support?</strong><br />
+A: Qalam works on macOS, Linux, and Windows (with WSL). Native Windows support without WSL is not currently available.</p>
+<p><strong>Q: Can I use Qalam without Kubernetes/AWS?</strong><br />
+A: Absolutely! The memory system, workflows, tasks, and many other features work independently of cloud services.</p>
+<h3 id="installation-issues">Installation Issues<a class="headerlink" href="#installation-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Command 'qalam' not found after installation</strong><br />
+A: The npm link command may not have added qalam to your PATH. Try:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check where npm installs global packages</span>
+npm<span class="w"> </span>bin<span class="w"> </span>-g
+
+<span class="c1"># Add to your PATH (in ~/.bashrc or ~/.zshrc)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>npm<span class="w"> </span>bin<span class="w"> </span>-g<span class="k">)</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Reload your shell</span>
+<span class="nb">source</span><span class="w"> </span>~/.bashrc<span class="w">  </span><span class="c1"># or ~/.zshrc</span>
+</code></pre></div>
+<p><strong>Q: Permission denied errors during npm link</strong><br />
+A: Avoid using sudo with npm. Instead, configure npm to use a different directory:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>~/.npm-global
+npm<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prefix<span class="w"> </span><span class="s1">&#39;~/.npm-global&#39;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/.npm-global/bin:<span class="nv">$PATH</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=~/.npm-global/bin:$PATH&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+npm<span class="w"> </span>link
+</code></pre></div>
+<p><strong>Q: Node version error</strong><br />
+A: Qalam requires Node.js v18 or higher. Update Node:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Using nvm (recommended)</span>
+curl<span class="w"> </span>-o-<span class="w"> </span>https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+nvm<span class="w"> </span>install<span class="w"> </span><span class="m">18</span>
+nvm<span class="w"> </span>use<span class="w"> </span><span class="m">18</span>
+
+<span class="c1"># Or download from nodejs.org</span>
+</code></pre></div>
+<h3 id="database-issues">Database Issues<a class="headerlink" href="#database-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Database locked error</strong><br />
+A: Another process may be using the database. Try:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find processes using the database</span>
+lsof<span class="w"> </span>~/.qalam/qalam.db
+
+<span class="c1"># Kill the process if stuck</span>
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;PID&gt;
+
+<span class="c1"># Or remove lock file</span>
+rm<span class="w"> </span>~/.qalam/qalam.db-journal
+</code></pre></div>
+<p><strong>Q: Corrupted database</strong><br />
+A: Reset the database (you'll lose saved data):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Backup current database</span>
+cp<span class="w"> </span>~/.qalam/qalam.db<span class="w"> </span>~/.qalam/qalam.db.backup
+
+<span class="c1"># Remove and recreate</span>
+rm<span class="w"> </span>~/.qalam/qalam.db
+qalam<span class="w">  </span><span class="c1"># Will recreate database</span>
+</code></pre></div>
+<p><strong>Q: Database migration failed</strong><br />
+A: Clear the database and let Qalam recreate it:</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>~/.qalam
+qalam<span class="w">  </span><span class="c1"># Will initialize fresh database</span>
+</code></pre></div>
+<h3 id="memory-system">Memory System<a class="headerlink" href="#memory-system" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Can't save commands with quotes</strong><br />
+A: Escape quotes or use different quote types:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use single quotes</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>cmd<span class="w"> </span><span class="s1">&#39;echo &quot;Hello World&quot;&#39;</span>
+
+<span class="c1"># Or escape double quotes</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>cmd<span class="w"> </span><span class="s2">&quot;echo \&quot;Hello World\&quot;&quot;</span>
+</code></pre></div>
+<p><strong>Q: Memory search not finding commands</strong><br />
+A: Search looks at name, command, and description:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Be more specific</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>search<span class="w"> </span>docker
+
+<span class="c1"># Or list all and grep</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>search-term
+</code></pre></div>
+<p><strong>Q: Import/Export not working</strong><br />
+A: Check file permissions and JSON format:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Export with specific path</span>
+qalam<span class="w"> </span>memory<span class="w"> </span><span class="nb">export</span><span class="w"> </span>~/backup.json
+
+<span class="c1"># Verify JSON format</span>
+cat<span class="w"> </span>backup.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+
+<span class="c1"># Import with full path</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>import<span class="w"> </span>~/backup.json
+</code></pre></div>
+<h3 id="workflow-issues">Workflow Issues<a class="headerlink" href="#workflow-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Workflow commands fail but continue running</strong><br />
+A: Check your continue-on-error setting:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Stop on first error</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>strict-workflow
+<span class="c1"># Don&#39;t add --continue flag</span>
+
+<span class="c1"># Or update existing workflow</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>remove<span class="w"> </span>my-workflow
+qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>my-workflow<span class="w">  </span><span class="c1"># Recreate without --continue</span>
+</code></pre></div>
+<p><strong>Q: Variables not being replaced</strong><br />
+A: Use correct syntax and ensure variables are set:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Correct variable syntax</span>
+<span class="si">${</span><span class="nv">variable</span><span class="si">}</span><span class="w"> </span>or<span class="w"> </span><span class="nv">$variable</span>
+
+<span class="c1"># Set variables when running</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>--vars<span class="w"> </span><span class="nv">env</span><span class="o">=</span>staging,region<span class="o">=</span>us-east-1
+</code></pre></div>
+<p><strong>Q: Parallel execution not working</strong><br />
+A: Some commands may not support parallel execution:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test commands individually first</span>
+command1<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>command2<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">wait</span>
+
+<span class="c1"># Or use sequential for dependent commands</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>sequential-workflow
+</code></pre></div>
+<h3 id="kubernetes-issues">Kubernetes Issues<a class="headerlink" href="#kubernetes-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Can't create shell/pod</strong><br />
+A: Check cluster connectivity and permissions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify cluster connection</span>
+kubectl<span class="w"> </span>cluster-info
+kubectl<span class="w"> </span>auth<span class="w"> </span>can-i<span class="w"> </span>create<span class="w"> </span>pods
+
+<span class="c1"># Check current context</span>
+kubectl<span class="w"> </span>config<span class="w"> </span>current-context
+
+<span class="c1"># Try with verbose output</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>service<span class="w"> </span>--verbose
+</code></pre></div>
+<p><strong>Q: Shell creation times out</strong><br />
+A: Image pull may be slow or failing:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check events</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>--sort-by<span class="o">=</span><span class="s1">&#39;.lastTimestamp&#39;</span>
+
+<span class="c1"># Try with a smaller image</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>service<span class="w"> </span>--image<span class="w"> </span>busybox:latest
+
+<span class="c1"># Check image pull secrets</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>secrets
+</code></pre></div>
+<p><strong>Q: Production access denied</strong><br />
+A: Production requires additional confirmation:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Always provide justification</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>prod-service<span class="w"> </span>--reason<span class="w"> </span><span class="s2">&quot;Investigating issue #123&quot;</span><span class="w"> </span>--duration<span class="w"> </span>30m
+
+<span class="c1"># Check if you have production access</span>
+kubectl<span class="w"> </span>auth<span class="w"> </span>can-i<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>-n<span class="w"> </span>production
+</code></pre></div>
+<h3 id="aws-issues">AWS Issues<a class="headerlink" href="#aws-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: SSO login fails</strong><br />
+A: Check SSO configuration and browser:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify SSO configuration</span>
+cat<span class="w"> </span>~/.aws/config<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sso
+
+<span class="c1"># Clear SSO cache</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.aws/sso/cache
+aws<span class="w"> </span>sso<span class="w"> </span><span class="nb">logout</span>
+
+<span class="c1"># Try manual login</span>
+aws<span class="w"> </span>sso<span class="w"> </span>login<span class="w"> </span>--profile<span class="w"> </span>your-profile
+</code></pre></div>
+<p><strong>Q: aws-vault errors</strong><br />
+A: Ensure aws-vault is installed and configured:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install aws-vault</span>
+brew<span class="w"> </span>install<span class="w"> </span>aws-vault<span class="w">  </span><span class="c1"># macOS</span>
+<span class="c1"># Or download from GitHub releases</span>
+
+<span class="c1"># Check keychain access (macOS)</span>
+security<span class="w"> </span>list-keychains
+
+<span class="c1"># Use alternative backend</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_VAULT_BACKEND</span><span class="o">=</span>file
+</code></pre></div>
+<p><strong>Q: Credentials expired</strong><br />
+A: Re-authenticate:</p>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span><span class="nb">logout</span>
+qalam<span class="w"> </span>login<span class="w"> </span>your-profile
+</code></pre></div>
+<h3 id="dockerservice-issues">Docker/Service Issues<a class="headerlink" href="#dockerservice-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Services won't start</strong><br />
+A: Check Docker daemon and compose file:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify Docker is running</span>
+docker<span class="w"> </span>ps
+
+<span class="c1"># Check compose file</span>
+docker-compose<span class="w"> </span>config
+
+<span class="c1"># View service logs</span>
+docker-compose<span class="w"> </span>logs<span class="w"> </span>service-name
+
+<span class="c1"># Remove orphaned containers</span>
+docker-compose<span class="w"> </span>down<span class="w"> </span>--remove-orphans
+</code></pre></div>
+<p><strong>Q: Port already in use</strong><br />
+A: Find and stop the conflicting process:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find process using port</span>
+lsof<span class="w"> </span>-i<span class="w"> </span>:3000<span class="w">  </span><span class="c1"># macOS/Linux</span>
+netstat<span class="w"> </span>-ano<span class="w"> </span><span class="p">|</span><span class="w"> </span>findstr<span class="w"> </span>:3000<span class="w">  </span><span class="c1"># Windows</span>
+
+<span class="c1"># Kill process</span>
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;PID&gt;
+</code></pre></div>
+<h3 id="http-client-issues">HTTP Client Issues<a class="headerlink" href="#http-client-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Can't import Postman collection</strong><br />
+A: Verify collection format:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if valid JSON</span>
+cat<span class="w"> </span>collection.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+
+<span class="c1"># Ensure it&#39;s Collection v2.1 format</span>
+<span class="c1"># Export from Postman: Collection &gt; Export &gt; Collection v2.1</span>
+</code></pre></div>
+<p><strong>Q: Variables not working</strong><br />
+A: Set variables before executing requests:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set required variables</span>
+qalam<span class="w"> </span>http<span class="w"> </span><span class="nb">set</span><span class="w"> </span>baseUrl<span class="w"> </span>https://api.example.com
+qalam<span class="w"> </span>http<span class="w"> </span><span class="nb">set</span><span class="w"> </span>authToken<span class="w"> </span>your-token
+
+<span class="c1"># View all variables</span>
+qalam<span class="w"> </span>http<span class="w"> </span>vars
+</code></pre></div>
+<h3 id="configuration-issues">Configuration Issues<a class="headerlink" href="#configuration-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Settings not persisting</strong><br />
+A: Check configuration file:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># View config location</span>
+ls<span class="w"> </span>-la<span class="w"> </span>~/.qalam/config.json
+
+<span class="c1"># Check permissions</span>
+chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.qalam/config.json
+
+<span class="c1"># Verify JSON syntax</span>
+cat<span class="w"> </span>~/.qalam/config.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</code></pre></div>
+<p><strong>Q: Custom skills not loading</strong><br />
+A: Verify skill configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check auto-load setting</span>
+qalam<span class="w"> </span>config<span class="w"> </span>get<span class="w"> </span>skills.autoLoad
+
+<span class="c1"># Enable if disabled</span>
+qalam<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>skills.autoLoad<span class="w"> </span><span class="nb">true</span>
+
+<span class="c1"># Check skill file</span>
+ls<span class="w"> </span>-la<span class="w"> </span>~/.qalam/skills/
+node<span class="w"> </span>-c<span class="w"> </span>~/.qalam/skills/myskill.js
+</code></pre></div>
+<h3 id="performance-issues">Performance Issues<a class="headerlink" href="#performance-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Q: Qalam is running slowly</strong><br />
+A: Try these optimizations:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clear old data</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>clear
+qalam<span class="w"> </span>memory<span class="w"> </span>stats<span class="w">  </span><span class="c1"># Check if too many commands</span>
+
+<span class="c1"># Disable animations</span>
+qalam<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>theme.animations<span class="w"> </span><span class="nb">false</span>
+
+<span class="c1"># Check database size</span>
+du<span class="w"> </span>-h<span class="w"> </span>~/.qalam/qalam.db
+</code></pre></div>
+<p><strong>Q: High memory usage</strong><br />
+A: Limit stored data:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Reduce history limit</span>
+qalam<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>memory.maxHistory<span class="w"> </span><span class="m">500</span>
+
+<span class="c1"># Clear old sessions</span>
+sqlite3<span class="w"> </span>~/.qalam/qalam.db<span class="w"> </span><span class="s2">&quot;DELETE FROM sessions WHERE end_time &lt; datetime(&#39;now&#39;, &#39;-30 days&#39;)&quot;</span>
+</code></pre></div>
+<h2 id="error-messages">Error Messages<a class="headerlink" href="#error-messages" title="Permanent link">&para;</a></h2>
+<h3 id="cannot-find-module">"Cannot find module"<a class="headerlink" href="#cannot-find-module" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Reinstall dependencies</span>
+npm<span class="w"> </span>install
+
+<span class="c1"># Clear npm cache</span>
+npm<span class="w"> </span>cache<span class="w"> </span>clean<span class="w"> </span>--force
+</code></pre></div>
+<h3 id="eacces-permission-denied">"EACCES: permission denied"<a class="headerlink" href="#eacces-permission-denied" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fix permissions</span>
+chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>~/.qalam
+chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.qalam/*
+</code></pre></div>
+<h3 id="command-failed-with-exit-code">"Command failed with exit code"<a class="headerlink" href="#command-failed-with-exit-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run with verbose output</span>
+qalam<span class="w"> </span>--verbose<span class="w"> </span>&lt;command&gt;
+
+<span class="c1"># Check individual command</span>
+&lt;command&gt;<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Exit code: </span><span class="nv">$?</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="unexpected-token">"Unexpected token"<a class="headerlink" href="#unexpected-token" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Syntax error in custom skill</span>
+node<span class="w"> </span>-c<span class="w"> </span>~/.qalam/skills/skillname.js
+
+<span class="c1"># Or in workflow command</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>show<span class="w"> </span>workflow-name
+</code></pre></div>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<h3 id="debug-mode">Debug Mode<a class="headerlink" href="#debug-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable debug output</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DEBUG</span><span class="o">=</span>*
+qalam<span class="w"> </span>&lt;command&gt;
+
+<span class="c1"># Or for specific skill</span>
+qalam<span class="w"> </span>skill-name<span class="w"> </span>--debug
+</code></pre></div>
+<h3 id="verbose-output">Verbose Output<a class="headerlink" href="#verbose-output" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># More detailed output</span>
+qalam<span class="w"> </span>--verbose<span class="w"> </span>&lt;command&gt;
+
+<span class="c1"># For specific operations</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>service<span class="w"> </span>--verbose
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>my-workflow<span class="w"> </span>--verbose
+</code></pre></div>
+<h3 id="system-information">System Information<a class="headerlink" href="#system-information" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Qalam version</span>
+qalam<span class="w"> </span>--version
+
+<span class="c1"># Node version</span>
+node<span class="w"> </span>--version
+
+<span class="c1"># Check dependencies</span>
+npm<span class="w"> </span>list
+
+<span class="c1"># System info</span>
+uname<span class="w"> </span>-a<span class="w">  </span><span class="c1"># Linux/macOS</span>
+</code></pre></div>
+<h3 id="reporting-issues">Reporting Issues<a class="headerlink" href="#reporting-issues" title="Permanent link">&para;</a></h3>
+<p>When reporting issues, include:</p>
+<ol>
+<li><strong>Qalam version</strong>: <code>qalam --version</code></li>
+<li><strong>Node version</strong>: <code>node --version</code></li>
+<li><strong>Operating system</strong>: <code>uname -a</code></li>
+<li><strong>Error message</strong>: Full error output</li>
+<li><strong>Steps to reproduce</strong>: Exact commands run</li>
+<li><strong>Debug output</strong>: Run with <code>DEBUG=* qalam &lt;command&gt;</code></li>
+</ol>
+<p>Report issues at: https://github.com/grandimam/qalam/issues</p>
+<h2 id="community-support">Community Support<a class="headerlink" href="#community-support" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>GitHub Discussions</strong>: Ask questions and share tips</li>
+<li><strong>Issue Tracker</strong>: Report bugs and request features</li>
+<li><strong>Wiki</strong>: Community-contributed guides and examples</li>
+</ul>
+<hr />
+<p>If your issue isn't covered here, please:</p>
+<ol>
+<li>Search existing GitHub issues</li>
+<li>Check the specific feature documentation</li>
+<li>Open a new issue with detailed information</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.expand", "navigation.sections", "navigation.tabs", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
