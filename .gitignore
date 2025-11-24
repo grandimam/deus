@@ -135,6 +135,9 @@ __pycache__/
 venv/
 ENV/
 
+# Documentation build
+# site/  # Uncomment if deploying to gh-pages branch
+
 # Terraform (if used for AWS infrastructure)
 *.tfstate
 *.tfstate.*

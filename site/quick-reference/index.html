@@ -1,0 +1,1752 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The intelligent command-line memory for developers">
+      
+      
+        <meta name="author" content="Your Name">
+      
+      
+        <link rel="canonical" href="https://yourdomain.com/quick-reference/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../getting-started/installation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Quick Reference - Qalam CLI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Qalam CLI" class="md-header__button md-logo" aria-label="Qalam CLI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Qalam CLI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/grandimam/qalam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qalam
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../features/memory/" class="md-tabs__link">
+          
+  
+  
+  Core Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../concepts/architecture/" class="md-tabs__link">
+          
+  
+  
+  Core Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../commands/" class="md-tabs__link">
+          
+  
+  
+  Help
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Qalam CLI" class="md-nav__button md-logo" aria-label="Qalam CLI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Qalam CLI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/grandimam/qalam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    qalam
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#essential-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essential Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker &amp; Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI &amp; Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-mode-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Mode Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Syntax
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-http-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In HTTP Client
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority Levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Locations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morning-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morning Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Shortcuts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keyboard Shortcuts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips &amp; Tricks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips &amp; Tricks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Chaining
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-slate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clean Slate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verbose-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbose Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/http-client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding Qalam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/custom-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="essential-commands">Essential Commands<a class="headerlink" href="#essential-commands" title="Permanent link">&para;</a></h2>
+<h3 id="memory-system">Memory System<a class="headerlink" href="#memory-system" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>&lt;name&gt;<span class="w"> </span><span class="s2">&quot;&lt;command&gt;&quot;</span><span class="w">        </span><span class="c1"># Save command</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>get<span class="w"> </span>&lt;name&gt;<span class="w">                     </span><span class="c1"># Get command</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>list<span class="w">                           </span><span class="c1"># List all</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>search<span class="w"> </span>&lt;query&gt;<span class="w">                 </span><span class="c1"># Search commands</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>delete<span class="w"> </span>&lt;name&gt;<span class="w">                  </span><span class="c1"># Delete command</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>stats<span class="w">                          </span><span class="c1"># Usage statistics</span>
+</code></pre></div>
+<h3 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>&lt;name&gt;<span class="w">                </span><span class="c1"># Create workflow</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>&lt;name&gt;<span class="w">                   </span><span class="c1"># Run workflow</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--vars<span class="w"> </span><span class="nv">x</span><span class="o">=</span>y<span class="w">        </span><span class="c1"># Run with variables</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>list<span class="w">                         </span><span class="c1"># List workflows</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>show<span class="w"> </span>&lt;name&gt;<span class="w">                  </span><span class="c1"># Show details</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>remove<span class="w"> </span>&lt;name&gt;<span class="w">                </span><span class="c1"># Delete workflow</span>
+</code></pre></div>
+<h3 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>tasks<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;&lt;task&gt;&quot;</span><span class="w"> </span><span class="o">[</span>p1<span class="p">|</span>p2<span class="p">|</span>p3<span class="o">]</span><span class="w">        </span><span class="c1"># Add task</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>next<span class="w">                           </span><span class="c1"># Get next task</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="o">[</span>task<span class="p">|</span>priority<span class="o">]</span><span class="w">           </span><span class="c1"># Complete task</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>list<span class="w">                           </span><span class="c1"># List all tasks</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>health<span class="w">                         </span><span class="c1"># Health check</span>
+qalam<span class="w"> </span>tasks<span class="w"> </span>clear<span class="w">                          </span><span class="c1"># Clear completed</span>
+</code></pre></div>
+<h3 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>cluster<span class="w"> </span><span class="o">[</span>env<span class="o">]</span><span class="w"> </span><span class="o">[</span>namespace<span class="o">]</span><span class="w">             </span><span class="c1"># Switch cluster</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>&lt;service&gt;<span class="w">                       </span><span class="c1"># Create debug pod</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>&lt;service&gt;<span class="w"> </span>--duration<span class="w"> </span>1h<span class="w">         </span><span class="c1"># Auto-cleanup</span>
+qalam<span class="w"> </span>shell<span class="w"> </span>status<span class="w"> </span>&lt;service&gt;<span class="w">                </span><span class="c1"># Check status</span>
+qalam<span class="w"> </span>kubectl<span class="w"> </span>&lt;command&gt;<span class="w">                     </span><span class="c1"># Run kubectl</span>
+</code></pre></div>
+<h3 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>login<span class="w"> </span><span class="o">[</span>profile<span class="o">]</span><span class="w">                       </span><span class="c1"># AWS SSO login</span>
+qalam<span class="w"> </span><span class="nb">logout</span><span class="w">                                </span><span class="c1"># Clear credentials</span>
+</code></pre></div>
+<h3 id="docker-services">Docker &amp; Services<a class="headerlink" href="#docker-services" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>docker<span class="w"> </span>ps<span class="w">                             </span><span class="c1"># List containers</span>
+qalam<span class="w"> </span>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container&gt;<span class="w">               </span><span class="c1"># View logs</span>
+qalam<span class="w"> </span>service<span class="w"> </span>start<span class="w"> </span>&lt;name&gt;<span class="w">                  </span><span class="c1"># Start service</span>
+qalam<span class="w"> </span>service<span class="w"> </span>stop<span class="w"> </span>&lt;name&gt;<span class="w">                   </span><span class="c1"># Stop service</span>
+qalam<span class="w"> </span>service<span class="w"> </span>logs<span class="w"> </span>&lt;name&gt;<span class="w">                   </span><span class="c1"># Service logs</span>
+qalam<span class="w"> </span>service<span class="w"> </span>list<span class="w">                          </span><span class="c1"># List services</span>
+</code></pre></div>
+<h3 id="http-client">HTTP Client<a class="headerlink" href="#http-client" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>http<span class="w"> </span>import<span class="w"> </span>&lt;file.json&gt;<span class="w">               </span><span class="c1"># Import Postman</span>
+qalam<span class="w"> </span>http<span class="w"> </span>list<span class="w">                             </span><span class="c1"># List requests</span>
+qalam<span class="w"> </span>http<span class="w"> </span><span class="s2">&quot;&lt;request name&gt;&quot;</span><span class="w">                 </span><span class="c1"># Execute request</span>
+qalam<span class="w"> </span>http<span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;var&gt;<span class="w"> </span>&lt;value&gt;<span class="w">                </span><span class="c1"># Set variable</span>
+qalam<span class="w"> </span>http<span class="w"> </span>vars<span class="w">                             </span><span class="c1"># Show variables</span>
+</code></pre></div>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>config<span class="w"> </span>list<span class="w">                           </span><span class="c1"># Show all config</span>
+qalam<span class="w"> </span>config<span class="w"> </span>get<span class="w"> </span>&lt;key&gt;<span class="w">                      </span><span class="c1"># Get value</span>
+qalam<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;key&gt;<span class="w"> </span>&lt;value&gt;<span class="w">              </span><span class="c1"># Set value</span>
+qalam<span class="w"> </span>config<span class="w"> </span>reset<span class="w">                          </span><span class="c1"># Reset to defaults</span>
+</code></pre></div>
+<h3 id="ai-help">AI &amp; Help<a class="headerlink" href="#ai-help" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>ask<span class="w"> </span><span class="s2">&quot;&lt;question&gt;&quot;</span><span class="w">                      </span><span class="c1"># AI assistance</span>
+qalam<span class="w"> </span><span class="nb">help</span><span class="w">                                  </span><span class="c1"># Show help</span>
+qalam<span class="w"> </span>skills<span class="w">                                </span><span class="c1"># List skills</span>
+qalam<span class="w"> </span>--version<span class="w">                             </span><span class="c1"># Show version</span>
+</code></pre></div>
+<h2 id="command-options">Command Options<a class="headerlink" href="#command-options" title="Permanent link">&para;</a></h2>
+<h3 id="global-options">Global Options<a class="headerlink" href="#global-options" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>--help,<span class="w"> </span>-h<span class="w">                                  </span><span class="c1"># Show help</span>
+--version,<span class="w"> </span>-v<span class="w">                               </span><span class="c1"># Show version</span>
+--verbose<span class="w">                                   </span><span class="c1"># Verbose output</span>
+</code></pre></div>
+<h3 id="shell-options">Shell Options<a class="headerlink" href="#shell-options" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>--reason<span class="w"> </span><span class="s2">&quot;&lt;text&gt;&quot;</span><span class="w">                           </span><span class="c1"># Justification</span>
+--duration<span class="w"> </span>&lt;time&gt;<span class="w">                           </span><span class="c1"># Auto-cleanup (1h, 30m)</span>
+--container<span class="w"> </span>&lt;name&gt;<span class="w">                          </span><span class="c1"># Target container</span>
+--async<span class="w">                                     </span><span class="c1"># Background creation</span>
+--verbose<span class="w">                                   </span><span class="c1"># Detailed progress</span>
+</code></pre></div>
+<h3 id="workflow-options">Workflow Options<a class="headerlink" href="#workflow-options" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>--parallel<span class="w">                                  </span><span class="c1"># Parallel execution</span>
+--continue<span class="w">                                  </span><span class="c1"># Continue on error</span>
+--description<span class="w"> </span><span class="s2">&quot;&lt;text&gt;&quot;</span><span class="w">                      </span><span class="c1"># Add description</span>
+--vars<span class="w"> </span><span class="nv">key</span><span class="o">=</span>value,key2<span class="o">=</span>value2<span class="w">               </span><span class="c1"># Set variables</span>
+</code></pre></div>
+<h2 id="interactive-mode-commands">Interactive Mode Commands<a class="headerlink" href="#interactive-mode-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>qalam<span class="w">                                       </span><span class="c1"># Enter interactive mode</span>
+
+<span class="c1"># In interactive mode:</span>
+<span class="nb">help</span><span class="w">                                        </span><span class="c1"># Show commands</span>
+skills<span class="w">                                      </span><span class="c1"># List skills</span>
+clear<span class="w">                                       </span><span class="c1"># Clear screen</span>
+stats<span class="w">                                       </span><span class="c1"># Show statistics</span>
+exit/quit<span class="w">                                   </span><span class="c1"># Exit</span>
+</code></pre></div>
+<h2 id="variable-syntax">Variable Syntax<a class="headerlink" href="#variable-syntax" title="Permanent link">&para;</a></h2>
+<h3 id="in-workflows">In Workflows<a class="headerlink" href="#in-workflows" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">variable</span><span class="si">}</span><span class="w">                                 </span><span class="c1"># Recommended</span>
+<span class="nv">$variable</span><span class="w">                                   </span><span class="c1"># Also works</span>
+</code></pre></div>
+<h3 id="in-http-client">In HTTP Client<a class="headerlink" href="#in-http-client" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">{{</span>variable<span class="o">}}</span><span class="w">                                </span><span class="c1"># Postman style</span>
+</code></pre></div>
+<h2 id="priority-levels">Priority Levels<a class="headerlink" href="#priority-levels" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>P1 - Urgent    (🔴 Critical, immediate attention)
+P2 - Important (🟡 Important but not critical)
+P3 - Normal    (🟢 Regular tasks)
+</code></pre></div>
+<h2 id="file-locations">File Locations<a class="headerlink" href="#file-locations" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>~/.qalam/qalam.db<span class="w">                          </span><span class="c1"># Database</span>
+~/.qalam/config.json<span class="w">                       </span><span class="c1"># Configuration</span>
+~/.qalam/skills/<span class="w">                           </span><span class="c1"># Custom skills</span>
+</code></pre></div>
+<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Configuration overrides</span>
+<span class="nv">QALAM_AI_PROVIDER</span><span class="o">=</span>openai
+<span class="nv">QALAM_THEME_COLOR</span><span class="o">=</span>green
+<span class="nv">QALAM_INTERACTIVE_PROMPT</span><span class="o">=</span><span class="s2">&quot;qalam&gt; &quot;</span>
+
+<span class="c1"># Cluster configuration</span>
+<span class="nv">QALAM_CLUSTER_DEV</span><span class="o">=</span>dev-cluster
+<span class="nv">QALAM_NAMESPACE_DEV</span><span class="o">=</span>default
+<span class="nv">QALAM_CLUSTER_STAGING</span><span class="o">=</span>staging-cluster
+<span class="nv">QALAM_NAMESPACE_STAGING</span><span class="o">=</span>staging
+<span class="nv">QALAM_CLUSTER_PROD</span><span class="o">=</span>prod-cluster
+<span class="nv">QALAM_NAMESPACE_PROD</span><span class="o">=</span>production
+
+<span class="c1"># Debug mode</span>
+<span class="nv">DEBUG</span><span class="o">=</span>*<span class="w"> </span>qalam<span class="w"> </span>&lt;command&gt;
+</code></pre></div>
+<h2 id="common-workflows">Common Workflows<a class="headerlink" href="#common-workflows" title="Permanent link">&para;</a></h2>
+<h3 id="morning-setup">Morning Setup<a class="headerlink" href="#morning-setup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>morning
+<span class="c1"># Add: git pull</span>
+<span class="c1"># Add: docker-compose up -d</span>
+<span class="c1"># Add: npm install</span>
+<span class="c1"># Add: npm run dev</span>
+
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>morning
+</code></pre></div>
+<h3 id="deploy-pipeline">Deploy Pipeline<a class="headerlink" href="#deploy-pipeline" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>workflow<span class="w"> </span>create<span class="w"> </span>deploy<span class="w"> </span>--vars<span class="w"> </span>env
+<span class="c1"># Add: npm test</span>
+<span class="c1"># Add: npm run build:${env}</span>
+<span class="c1"># Add: kubectl apply -f k8s/${env}/</span>
+
+qalam<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>--vars<span class="w"> </span><span class="nv">env</span><span class="o">=</span>staging
+</code></pre></div>
+<h3 id="api-testing">API Testing<a class="headerlink" href="#api-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>http<span class="w"> </span>import<span class="w"> </span>api.json
+qalam<span class="w"> </span>http<span class="w"> </span><span class="nb">set</span><span class="w"> </span>baseUrl<span class="w"> </span>http://localhost:3000
+qalam<span class="w"> </span>http<span class="w"> </span><span class="nb">set</span><span class="w"> </span>token<span class="w"> </span>abc123
+qalam<span class="w"> </span>http<span class="w"> </span><span class="s2">&quot;Login&quot;</span>
+qalam<span class="w"> </span>http<span class="w"> </span><span class="s2">&quot;Get Users&quot;</span>
+</code></pre></div>
+<h3 id="debug-production">Debug Production<a class="headerlink" href="#debug-production" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>login<span class="w"> </span>prod
+qalam<span class="w"> </span>cluster<span class="w"> </span>prod
+qalam<span class="w"> </span>shell<span class="w"> </span>api<span class="w"> </span>--reason<span class="w"> </span><span class="s2">&quot;Debug issue #123&quot;</span><span class="w"> </span>--duration<span class="w"> </span>30m
+</code></pre></div>
+<h2 id="keyboard-shortcuts">Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permanent link">&para;</a></h2>
+<h3 id="interactive-mode">Interactive Mode<a class="headerlink" href="#interactive-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>↑/↓         Navigate command history
+Tab         Auto-complete (where supported)
+Ctrl+C      Cancel current operation
+Ctrl+D      Exit interactive mode
+Ctrl+L      Clear screen
+</code></pre></div>
+<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>0   Success
+1   General error
+2   Misuse of shell command
+126 Command cannot execute
+127 Command not found
+130 Terminated by Ctrl+C
+</code></pre></div>
+<h2 id="tips-tricks">Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permanent link">&para;</a></h2>
+<h3 id="command-chaining">Command Chaining<a class="headerlink" href="#command-chaining" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Sequential</span>
+cmd1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmd2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmd3
+
+<span class="c1"># Parallel</span>
+cmd1<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>cmd2<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="nb">wait</span>
+
+<span class="c1"># Continue on error</span>
+cmd1<span class="w"> </span><span class="p">;</span><span class="w"> </span>cmd2<span class="w"> </span><span class="p">;</span><span class="w"> </span>cmd3
+</code></pre></div>
+<h3 id="quick-aliases">Quick Aliases<a class="headerlink" href="#quick-aliases" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>k<span class="w"> </span><span class="s2">&quot;kubectl&quot;</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>d<span class="w"> </span><span class="s2">&quot;docker&quot;</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>dc<span class="w"> </span><span class="s2">&quot;docker-compose&quot;</span>
+qalam<span class="w"> </span>memory<span class="w"> </span>save<span class="w"> </span>g<span class="w"> </span><span class="s2">&quot;git&quot;</span>
+</code></pre></div>
+<h3 id="backup-data">Backup Data<a class="headerlink" href="#backup-data" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Export everything</span>
+qalam<span class="w"> </span>memory<span class="w"> </span><span class="nb">export</span><span class="w"> </span>memory-backup.json
+qalam<span class="w"> </span>workflow<span class="w"> </span><span class="nb">export</span><span class="w"> </span>workflow-backup.json
+
+<span class="c1"># Backup database</span>
+cp<span class="w"> </span>~/.qalam/qalam.db<span class="w"> </span>~/qalam-backup.db
+</code></pre></div>
+<h3 id="clean-slate">Clean Slate<a class="headerlink" href="#clean-slate" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Reset everything</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>~/.qalam
+qalam<span class="w">  </span><span class="c1"># Reinitialize</span>
+</code></pre></div>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<h3 id="verbose-output">Verbose Output<a class="headerlink" href="#verbose-output" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>--verbose<span class="w"> </span>&lt;command&gt;
+qalam<span class="w"> </span>shell<span class="w"> </span>&lt;service&gt;<span class="w"> </span>--verbose
+<span class="nv">DEBUG</span><span class="o">=</span>*<span class="w"> </span>qalam<span class="w"> </span>&lt;command&gt;
+</code></pre></div>
+<h3 id="check-health">Check Health<a class="headerlink" href="#check-health" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>qalam<span class="w"> </span>tasks<span class="w"> </span>health
+qalam<span class="w"> </span>memory<span class="w"> </span>stats
+qalam<span class="w"> </span>config<span class="w"> </span>list
+</code></pre></div>
+<h3 id="test-commands">Test Commands<a class="headerlink" href="#test-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dry run</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Would run: </span><span class="k">$(</span>qalam<span class="w"> </span>memory<span class="w"> </span>get<span class="w"> </span>&lt;name&gt;<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># Test workflow</span>
+qalam<span class="w"> </span>workflow<span class="w"> </span>show<span class="w"> </span>&lt;name&gt;
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.expand", "navigation.sections", "navigation.tabs", "navigation.top", "toc.integrate", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

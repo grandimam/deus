@@ -7,12 +7,14 @@ Qalam (قلم - "The Pen") is an intelligent CLI assistant that remembers your c
 ## ✨ Why Qalam?
 
 **The Problem:** Your daily development flow is constantly interrupted:
+
 - 🔍 Searching for that command you ran last month
 - 📝 Re-typing the same command sequences every morning
 - 🤯 Context-switching between different tools and services
 - 😤 Forgetting project-specific commands and setups
 
 **The Solution:** Qalam becomes your command-line memory:
+
 - 🧠 **AI-Powered**: Ask in plain English, get working solutions
 - 🔄 **Smart Workflows**: Automate your daily routines
 - 💾 **Perfect Memory**: Every useful command, instantly recalled
@@ -21,6 +23,7 @@ Qalam (قلم - "The Pen") is an intelligent CLI assistant that remembers your c
 ## 🎯 Key Features
 
 ### 1. AI That Understands Your Problems
+
 ```bash
 # Instead of endless googling...
 qalam ask "how to find and kill process using port 3000"
@@ -30,6 +33,7 @@ qalam ask "setup git hooks for auto-formatting"
 ```
 
 ### 2. Workflows - Automate Your Daily Rituals
+
 ```bash
 # Create your morning startup routine
 qalam workflow create morning
@@ -43,6 +47,7 @@ qalam workflow run setup --vars project=client-app
 ```
 
 ### 3. Never Lose a Command Again
+
 ```bash
 # Save that complex command you finally got working
 qalam memory save test-e2e "npm run test:e2e -- --browser=chrome --headed"
@@ -52,6 +57,7 @@ qalam memory get test-e2e
 ```
 
 ### 4. Interactive Mode - Your Command Center
+
 ```bash
 qalam  # Just type this
 
@@ -64,14 +70,16 @@ qalam  # Just type this
 ## 🚀 Quick Start
 
 ### Install in 30 Seconds
+
 ```bash
-git clone https://github.com/yourusername/qalam.git
+git clone https://github.com/grandimam/qalam.git
 cd qalam
 npm install
 npm link  # Makes 'qalam' available globally
 ```
 
 ### Your First Day with Qalam
+
 ```bash
 # Start interactive mode
 qalam
@@ -81,7 +89,7 @@ qalam
   Command 1: git pull
   Command 2: npm install
   Command 3: npm run dev
-  
+
 # Save useful commands
 > memory save lint-fix "npm run lint -- --fix"
 
@@ -92,6 +100,7 @@ qalam
 ## 💪 Real Developer Scenarios
 
 ### Morning Routine
+
 ```bash
 # One command to start your entire dev environment
 qalam workflow create start-dev
@@ -103,6 +112,7 @@ qalam workflow run start-dev  # Ready to code in seconds
 ```
 
 ### Project Switching
+
 ```bash
 # Save project-specific commands
 qalam memory save client-deploy "npm run build && scp -r dist/* user@client-server:/var/www"
@@ -113,6 +123,7 @@ qalam memory get client-deploy
 ```
 
 ### Debugging Sessions
+
 ```bash
 # When things go wrong
 qalam ask "app crashes with heap out of memory error"
@@ -121,6 +132,7 @@ qalam ask "find memory leaks in react app"
 ```
 
 ### End of Day Cleanup
+
 ```bash
 qalam workflow create shutdown
 # Add: git add . && git commit -m "WIP"
@@ -141,6 +153,7 @@ qalam workflow run shutdown  # Clean exit every time
 ## 📊 See the Difference
 
 **Before Qalam:**
+
 ```bash
 # Where was that test command...
 history | grep test
@@ -150,24 +163,26 @@ npm run test:integration -- --grep "user auth" --timeout 5000 --bail
 ```
 
 **After Qalam:**
+
 ```bash
 qalam memory get test-auth  # Done instantly
 ```
 
 ## 🔧 Core Commands
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `qalam` | Interactive mode | `qalam` |
-| `qalam ask` | AI assistance | `qalam ask "how to mock API calls in tests"` |
-| `qalam workflow` | Automation chains | `qalam workflow create build-deploy` |
-| `qalam memory` | Command storage | `qalam memory save dev "npm run dev"` |
-| `qalam docker` | Docker shortcuts | `qalam docker ps` |
-| `qalam service` | Service management | `qalam service start redis` |
+| Command          | Purpose            | Example                                      |
+| ---------------- | ------------------ | -------------------------------------------- |
+| `qalam`          | Interactive mode   | `qalam`                                      |
+| `qalam ask`      | AI assistance      | `qalam ask "how to mock API calls in tests"` |
+| `qalam workflow` | Automation chains  | `qalam workflow create build-deploy`         |
+| `qalam memory`   | Command storage    | `qalam memory save dev "npm run dev"`        |
+| `qalam docker`   | Docker shortcuts   | `qalam docker ps`                            |
+| `qalam service`  | Service management | `qalam service start redis`                  |
 
 ## 🛠 Power Features
 
 ### Workflow Variables
+
 ```bash
 # Create flexible workflows
 qalam workflow create deploy
@@ -180,6 +195,7 @@ qalam workflow run deploy --vars env=production
 ```
 
 ### Parallel Execution
+
 ```bash
 # Run multiple tasks simultaneously
 qalam workflow create test-all --parallel
@@ -189,6 +205,7 @@ qalam workflow create test-all --parallel
 ```
 
 ### Smart Command Chains
+
 ```bash
 # Continue even if something fails
 qalam workflow create safe-update --continue
@@ -211,9 +228,9 @@ qalam workflow create safe-update --continue
 // ~/.qalam/skills/custom.js
 export default class GitFlowSkill extends Skill {
   constructor() {
-    super('gitflow', 'Automated git workflows');
+    super("gitflow", "Automated git workflows");
   }
-  
+
   async execute(args) {
     // Your custom automation
   }
@@ -227,6 +244,7 @@ In Islamic tradition, the Qalam (pen) was the first creation, used to write all 
 ## 🤝 Contributing
 
 We love contributions:
+
 - 🐛 Bug fixes
 - ✨ New features
 - 📚 Better docs

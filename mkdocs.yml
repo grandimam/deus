@@ -1,0 +1,78 @@
+site_name: Qalam CLI
+site_description: The intelligent command-line memory for developers
+site_author: Your Name
+site_url: https://yourdomain.com
+
+# Repository
+repo_name: qalam
+repo_url: https://github.com/grandimam/qalam
+
+# Theme
+theme:
+  name: material
+  language: en
+  
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.expand
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+    - toc.follow
+    - search.highlight
+    - search.suggest
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - tables
+
+# Plugins
+plugins:
+  - search
+
+# Navigation
+nav:
+  - Home: index.md
+  - Quick Reference: quick-reference.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+  - Core Features:
+    - Memory System: features/memory.md
+    - Workflows: features/workflows.md
+    - Task Management: features/tasks.md
+    - HTTP Client: features/http-client.md
+  - Core Concepts:
+    - Understanding Qalam: concepts/architecture.md
+    - Custom Skills: development/custom-skills.md
+  - Help:
+    - Commands: commands/index.md
+    - Troubleshooting: troubleshooting.md
